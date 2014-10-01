@@ -1,0 +1,23 @@
+{
+  "name": "elHIIT",
+  "version": "0.0.0",
+  "authors": [
+    "@RebootJeff"
+  ],
+  "license": "GPLv3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.3",
+    "angular-material": "~0.0.3"
+  },
+  "resolutions": {
+    "angular": "1.3"
+  }
+}
