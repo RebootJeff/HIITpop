@@ -1,3 +1,9 @@
+angular.module('mainApp', ['ngAnimate', 'ngMaterial']);
+
+angular.module('mainApp').controller('testCtrl', function($scope) {
+  $scope.test = 'hello';
+});
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
