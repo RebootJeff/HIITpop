@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>El HIIT</title>
+    <meta name="description" content="HIIT Timer web app using Android Material Design UX" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+  </head>
+  <body ng-app="mainApp">
+    <!--if lt IE 8
+      <p>
+        You are using an <strong>outdated</strong> browser.
+        Please <a href="http://browsehappy.com/">upgrade your browser</a>
+        to improve your experience.
+      </p>
+    -->
+
+    <section ng-controller="testCtrl">
+      {{ test }}
+    </section>
+
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/hammerjs/hammer.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
