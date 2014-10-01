@@ -1,12 +1,12 @@
 {
   "name": "elHIIT",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "HIIT Timer web app based on Android L's Material Design UX",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "@RebootJeff",
   "license": "GPLv3",
   "devDependencies": {
     "del": "^0.1.3",
