@@ -4,18 +4,16 @@ angular.module('mainApp', [
   'ui.router'
 ]);
 
-angular.module('mainApp').config(function($locationProvider, $stateProvider) {
+angular.module('mainApp').config(function($locationProvider, $urlRouterProvider, $stateProvider) {
   $locationProvider.html5Mode(true);
 
+  $urlRouterProvider.otherwise('/home');
+
   $stateProvider
-    .state('index', {
-      url: '',
-      views: {
-        'homeView': {
-          templateUrl: 'home/home.html',
-          controller: 'homeCtrl as home'
-        }
-      }
+    .state('home', {
+      url: '/home',
+      templateUrl: 'app/home/home.html',
+      controller: 'homeCtrl as home'
     });
 
 });
