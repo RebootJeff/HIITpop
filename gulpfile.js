@@ -10,7 +10,7 @@ var serverJSFiles = [
   'server/**/*.js',
   '!server/test/*'
 ];
-var htmlFiles = 'client/index.html';
+var htmlFiles = 'client/**/*.html';
 
 gulp.task('clean:dist', function (cb) {
   del([
@@ -44,6 +44,10 @@ gulp.task('watch', function() {
   console.log('Watching...');
 
   gulp.watch(clientJSFiles, ['compile:clientJS']).on('change', function(event){
+    console.log('File', event.path, 'was', event.type);
+  });
+
+  gulp.watch(htmlFiles, ['compile:html']).on('change', function(event){
     console.log('File', event.path, 'was', event.type);
   });
 });
