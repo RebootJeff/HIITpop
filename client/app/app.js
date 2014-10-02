@@ -1,4 +1,5 @@
-angular.module('mainApp', ['ngAnimate',
+angular.module('mainApp', [
+  'ngAnimate',
   'ngMaterial',
   'ui.router'
 ]);
@@ -6,8 +7,17 @@ angular.module('mainApp', ['ngAnimate',
 angular.module('mainApp').config(function($locationProvider, $stateProvider) {
   $locationProvider.html5Mode(true);
 
+  $stateProvider
+    .state('index', {
+      url: '',
+      views: {
+        'homeView': {
+          templateUrl: 'home/home.html',
+          controller: 'homeCtrl as home'
+        }
+      }
+    });
+
 });
 
-angular.module('mainApp').controller('testCtrl', function($scope) {
-  $scope.test = 'hello';
-});
+
