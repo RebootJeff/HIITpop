@@ -8,7 +8,7 @@ var print   = require('gulp-print');
 var clientJSFiles = 'client/app/**/*.js';
 var serverJSFiles = [
   'server/**/*.js',
-  '!server/test/*'
+  '!server/spec/*'
 ];
 var htmlFiles = 'client/**/*.html';
 
