@@ -17,5 +17,3 @@ angular.module('mainApp').config(function($locationProvider, $urlRouterProvider,
     });
 
 });
-
-

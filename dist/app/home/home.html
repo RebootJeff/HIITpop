@@ -1,5 +1,27 @@
-<p>world</p>
+<material-toolbar class="material-theme-dark material-medium-tall" style="padding-top:15px;">
+  <div class="material-toolbar-tools">
+    <tf-float label="Routine Title" value="home.routine.title"></tf-float>
+  </div>
+</material-toolbar>
+
+<material-tabs selected="selectedIndex" center>
+  <material-tab label="PLAN IT"></material-tab>
+  <material-tab label="DO IT"></material-tab>
+</material-tabs>
+
+<form class="dark">
+  <div ng-repeat="exercise in home.routine.exercises" layout="horizontal" layout-align="center" layout-padding>
+    <tf-float type="text" label="Exercise Name" value="exercise.name"></tf-float>
+    <tf-float type="number" label="Duration" value="exercise.duration"></tf-float>
+  </div>
+
+  <div layout="horizontal" layout-align="center">
+    <material-button ng-click="home.addExercise()" class="material-button-raised material-button-colored">Add Exercise</material-button>
+  </div>
+</form>
+
+
 
 <p>
-  {{ home.test }}
+  {{ home.routine }}
 </p>
