@@ -27,6 +27,14 @@ app.route('/api/dev')
 
   });
 
+// Default to home page
+// TODO: Fix this to serve 404 page as appropriate
+app.get('/*', function(req, res, next) {
+  res.sendfile('index.html', {
+    root: __dirname + '/../dist'
+  });
+});
+
 
 // ============================================================================
 // Start server
