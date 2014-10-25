@@ -1,7 +1,7 @@
 {
-  "name": "elHIIT",
+  "name": "HIITpop",
   "version": "0.0.0",
-  "description": "HIIT Timer web app based on Android L's Material Design UX",
+  "description": "HIIT Timer web app based on Android Lollipop Material Design UX",
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
