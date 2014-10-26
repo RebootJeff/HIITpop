@@ -1,19 +1,17 @@
 angular.module('mainApp', [
+  // 1st party dependencies
+  'browseFeature',
+  'editFeature',
+  'runFeature',
+
+  // 3rd party dependencies
   'ngAnimate',
-  'ngMaterial',
-  'ui.router'
+  'ngMaterial'
 ]);
 
-angular.module('mainApp').config(function($locationProvider, $urlRouterProvider, $stateProvider) {
+angular.module('mainApp').config(function($locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
 
-  $urlRouterProvider.otherwise('/home');
-
-  $stateProvider
-    .state('home', {
-      url: '/home',
-      templateUrl: 'app/home/home.html',
-      controller: 'homeCtrl as home'
-    });
+  $urlRouterProvider.otherwise('/edit');
 
 });

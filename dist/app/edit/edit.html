@@ -1,19 +1,19 @@
-<md-toolbar class="md-theme-dark md-medium-tall" style="padding-top:15px;">
+<md-toolbar class="md-theme-dark">
   <div class="md-toolbar-tools">
-    <md-text-float label="Routine Title" ng-model="home.routine.title"></md-text-float>
+    <md-text-float label="Routine Title" ng-model="edit.routine.title"></md-text-float>
   </div>
 </md-toolbar>
 
 <form class="dark">
 
-  <section ng-repeat="exercise in home.routine.exercises" layout="vertical" layout-sm="horizontal" layout-align="center center">
+  <section ng-repeat="exercise in edit.routine.exercises" layout="vertical" layout-sm="horizontal" layout-align="center center">
     <md-text-float label="Exercise Name" ng-model="exercise.name" type="text"></md-text-float>
     <md-text-float label="Duration (seconds)" ng-model="exercise.duration" type="number"></md-text-float>
-    <md-button ng-click="home.removeExercise($index)" class="md-theme-purple">X</md-button>
+    <md-button ng-click="edit.removeExercise($index)" class="md-theme-purple">X</md-button>
   </section>
 
   <section layout="vertical" layout-sm="horizontal" layout-align="center center">
-    <md-button ng-click="home.addExercise()" class="md-theme-dark" flex flex-sm="20">Add Exercise</md-button>
+    <md-button ng-click="edit.addExercise()" class="md-theme-dark" flex flex-sm="20">Add Exercise</md-button>
   </section>
 
   <section layout="vertical" layout-sm="horizontal" layout-align="center center">
@@ -27,5 +27,5 @@
 
 
 <p>
-  {{ home.routine }}
+  {{ edit.routine }}
 </p>

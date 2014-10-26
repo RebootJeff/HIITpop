@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>HIITpop</title>
-    <meta name="description" content="HIIT Timer web app based on Android L's Material Design UX" />
+    <meta name="description" content="HIIT Timer web app based on Android Lollipop's Material Design UX" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
   </head>
@@ -17,6 +17,12 @@
         to improve your experience.
       </p>
     -->
+
+    <md-tabs selected="selectedIndex" center>
+      <md-tab ui-sref="browse" label="Browse"></md-tab>
+      <md-tab ui-sref="edit" label="Plan"></md-tab>
+      <md-tab ui-sref="run" label="Do"></md-tab>
+    </md-tabs>
 
     <div ui-view></div>
 

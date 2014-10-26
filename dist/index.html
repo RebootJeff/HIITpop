@@ -4,8 +4,8 @@
     <base href="/" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>El HIIT</title>
-    <meta name="description" content="HIIT Timer web app based on Android L's Material Design UX" />
+    <title>HIITpop</title>
+    <meta name="description" content="HIIT Timer web app based on Android Lollipop's Material Design UX" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
   </head>
@@ -18,11 +18,17 @@
       </p>
     -->
 
+    <md-tabs selected="selectedIndex" center>
+      <md-tab ui-sref="browse" label="Browse"></md-tab>
+      <md-tab ui-sref="edit" label="Plan"></md-tab>
+      <md-tab ui-sref="run" label="Do"></md-tab>
+    </md-tabs>
+
     <div ui-view></div>
 
     <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <script src="/bower_components/angular-material/angular-material.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/bower_components/hammerjs/hammer.js"></script>

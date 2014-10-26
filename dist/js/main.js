@@ -1,60 +1,82 @@
 angular.module('mainApp', [
+  // 1st party dependencies
+  'browseFeature',
+  'editFeature',
+  'runFeature',
+
+  // 3rd party dependencies
   'ngAnimate',
-  'ngMaterial',
+  'ngMaterial'
+]);
+
+angular.module('mainApp').config(function($locationProvider, $urlRouterProvider) {
+  $locationProvider.html5Mode(true);
+
+  $urlRouterProvider.otherwise('/edit');
+
+});
+
+angular.module('browseFeature', [
+  // 3rd party dependencies
   'ui.router'
 ]);
 
-angular.module('mainApp').config(function($locationProvider, $urlRouterProvider, $stateProvider) {
-  $locationProvider.html5Mode(true);
+angular.module('browseFeature')
 
-  $urlRouterProvider.otherwise('/home');
-
+.config(function($stateProvider) {
   $stateProvider
-    .state('home', {
-      url: '/home',
-      templateUrl: 'app/home/home.html',
-      controller: 'homeCtrl as home'
+    .state('browse', {
+      url: '/browse',
+      templateUrl: 'app/browse/browse.html',
+      controller: 'browseCtrl as browse'
     });
+})
+
+.controller('browseCtrl', function() {
+
+  this.selectedRoutineTitle = 'Pick a Routine';
 
 });
 
+angular.module('mainApp').service('RoutineService', function() {
+  var _this = this;
+  var _routinesCache = {};
 
-angular.module('mainApp').directive('tfFloat', function() {
-  return {
-    restrict: 'E',
-    replace: true,
-    scope : {
-      fid : '@?',
-      value : '='
-    },
-    compile : function() {
-      return {
-        pre : function(scope, element, attrs) {
-          // transpose `disabled` flag
-          if ( angular.isDefined(attrs.disabled) ) {
-            element.attr('disabled', true);
-            scope.isDisabled = true;
-          }
-
-          // transpose the `label` value
-          scope.label = attrs.label || "";
-          scope.fid = scope.fid || scope.label;
-
-          // transpose optional `type` and `class` settings
-          element.attr('type', attrs.type || "text");
-          element.attr('class', attrs.class );
-        }
-      }
-    },
-    template:
-      '<material-input-group ng-disabled="isDisabled">' +
-        '<label for="{{fid}}">{{label}}</label>' +
-        '<material-input id="{{fid}}" ng-model="value">' +
-      '</material-input-group>'
+  this.save = function(routine) {
+    _this._routinesCache[routine.title] = routine;
   };
+
+  this.getAll = function() {
+    return _this._routinesCache;
+  };
+
+  this.get = function(title) {
+    return _this._routinesCache[title];
+  };
+
+  this.delete = function(routineTitle) {
+    delete _this._routinesCache[routineTitle];
+  };
+
 });
 
-angular.module('mainApp').controller('homeCtrl', function() {
+angular.module('editFeature', [
+  // 3rd party dependencies
+  'ui.router'
+]);
+
+angular.module('editFeature')
+
+.config(function($stateProvider) {
+  $stateProvider
+    .state('edit', {
+      url: '/edit',
+      templateUrl: 'app/edit/edit.html',
+      controller: 'editCtrl as edit'
+    });
+})
+
+.controller('editCtrl', function() {
   this.test = 'hello';
 
   this.routine = {};
@@ -63,5 +85,38 @@ angular.module('mainApp').controller('homeCtrl', function() {
   this.addExercise = function() {
     this.routine.exercises.push({});
   };
+
+  this.removeExercise = function(index) {
+    this.routine.exercises.splice(index, 1);
+  };
+
+  this.saveRoutine = function() {
+    
+  };
+
+  this.cancelEdit = function() {
+
+  };
+
+});
+
+angular.module('runFeature', [
+  // 3rd party dependencies
+  'ui.router'
+]);
+
+angular.module('runFeature')
+
+.config(function($stateProvider) {
+  $stateProvider
+    .state('run', {
+      url: '/run',
+      templateUrl: 'app/run/run.html',
+      controller: 'runCtrl as run'
+    });
+})
+
+.controller('runCtrl', function() {
+  console.log('in runCtrl');
 
 });
