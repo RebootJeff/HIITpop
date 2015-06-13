@@ -1,14 +1,14 @@
 <md-toolbar class="md-theme-dark">
   <div class="md-toolbar-tools">
-    <md-text-float label="Routine Title" ng-model="edit.routine.title"></md-text-float>
+    <md-input label="Routine Title" ng-model="edit.routine.title"></md-input>
   </div>
 </md-toolbar>
 
 <form class="dark">
 
   <section ng-repeat="exercise in edit.routine.exercises" layout="vertical" layout-sm="horizontal" layout-align="center center">
-    <md-text-float label="Exercise Name" ng-model="exercise.name" type="text"></md-text-float>
-    <md-text-float label="Duration (seconds)" ng-model="exercise.duration" type="number"></md-text-float>
+    <md-input label="Exercise Name" ng-model="exercise.name" type="text"></md-input>
+    <md-input label="Duration (seconds)" ng-model="exercise.duration" type="number"></md-input>
     <md-button ng-click="edit.removeExercise($index)" class="md-theme-purple">X</md-button>
   </section>
 

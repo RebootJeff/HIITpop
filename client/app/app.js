@@ -5,7 +5,6 @@ angular.module('mainApp', [
   'runFeature',
 
   // 3rd party dependencies
-  'ngAnimate',
   'ngMaterial'
 ]);
 
