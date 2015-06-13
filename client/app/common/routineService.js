@@ -1,21 +1,21 @@
 angular.module('mainApp').service('RoutineService', function() {
-  var _this = this;
+  var RoutineSvc = this;
   var _routinesCache = {};
 
-  this.save = function(routine) {
-    _this._routinesCache[routine.title] = routine;
+  RoutineSvc.save = function(routine) {
+    RoutineSvc._routinesCache[routine.title] = routine;
   };
 
-  this.getAll = function() {
-    return _this._routinesCache;
+  RoutineSvc.getAll = function() {
+    return RoutineSvc._routinesCache;
   };
 
-  this.get = function(title) {
-    return _this._routinesCache[title];
+  RoutineSvc.get = function(title) {
+    return RoutineSvc._routinesCache[title];
   };
 
-  this.delete = function(routineTitle) {
-    delete _this._routinesCache[routineTitle];
+  RoutineSvc.delete = function(routineTitle) {
+    delete RoutineSvc._routinesCache[routineTitle];
   };
 
 });
