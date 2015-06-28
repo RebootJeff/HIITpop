@@ -1,1 +1,25 @@
-<h1>run state/view</h1>
+<h1>Routine: {{:: run.routine.title}}</h1>
+
+<md-content>
+
+  {{ run.currentExercise.name }}
+  {{ run.timeLeft }}
+
+  <md-list>
+     <md-subheader class="md-no-sticky">Exercises</md-subheader>
+     <md-list-item class="md-2-line" ng-repeat="exercise in run.routine.exercises">
+       <div class="md-list-item-text">
+        <h3>{{ exercise.name }}</h3>
+        <p>{{ exercise.duration }} seconds</p>
+      </div>
+    </md-list-item>
+  </md-list>
+
+  <md-button
+    class="md-fab"
+    ng-click="run.playPause()"
+    aria-label="play/pause">
+    Play
+  </md-button>
+
+</md-content>
