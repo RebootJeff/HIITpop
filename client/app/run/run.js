@@ -42,7 +42,7 @@ angular.module('runFeature')
 
   runCtrl.playPause = function() {
     if(status === 'playing') {
-      stop();
+      pause();
     } else {
       play();
     }
@@ -55,17 +55,16 @@ angular.module('runFeature')
 
   function runRoutine() {
     if(runCtrl.timeLeft === 0) {
-      switchExercise();
+      nextExercise();
     } else {
       runCtrl.timeLeft--;
     }
   }
 
-  function switchExercise() {
+  function nextExercise() {
     currentExerciseIndex++;
     if(moreExercisesLeft()) {
-      runCtrl.currentExercise = runCtrl.routine.exercises[currentExerciseIndex];
-      runCtrl.timeLeft = runCtrl.currentExercise.duration
+      runCtrl.setCurrentExercise(currentExerciseIndex);
     } else {
       pause();
     }
@@ -75,8 +74,13 @@ angular.module('runFeature')
     return currentExerciseIndex < runCtrl.routine.exercises.length;
   }
 
+  runCtrl.setCurrentExercise = function(index) {
+    currentExerciseIndex = index;
+    runCtrl.currentExercise = runCtrl.routine.exercises[currentExerciseIndex];
+    runCtrl.timeLeft = runCtrl.currentExercise.duration
+  };
+
   function pause() {
-    console.log('paused');
     $interval.cancel(timer);
     status = 'paused';
   }
