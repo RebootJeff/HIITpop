@@ -14,25 +14,24 @@ angular.module('editFeature')
     });
 })
 
-.controller('editCtrl', function() {
-  this.test = 'hello';
+.controller('editCtrl', function(RoutineSvc) {
+  var editCtrl = this;
+  editCtrl.test = 'hello';
 
-  this.routine = {};
-  this.routine.exercises = [{}];
+  editCtrl.routine = {};
+  editCtrl.routine.exercises = [{}];
 
-  this.addExercise = function() {
-    this.routine.exercises.push({});
+  editCtrl.addExercise = function() {
+    editCtrl.routine.exercises.push({});
   };
 
-  this.removeExercise = function(index) {
-    this.routine.exercises.splice(index, 1);
+  editCtrl.removeExercise = function(index) {
+    editCtrl.routine.exercises.splice(index, 1);
   };
 
-  this.saveRoutine = function() {
-    
-  };
+  editCtrl.saveRoutine = RoutineSvc.save;
 
-  this.cancelEdit = function() {
+  editCtrl.cancelEdit = function() {
 
   };
 

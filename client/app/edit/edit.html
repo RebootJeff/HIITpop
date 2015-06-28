@@ -1,30 +1,38 @@
-<md-toolbar class="md-theme-dark">
-  <div class="md-toolbar-tools">
-    <md-input label="Routine Title" ng-model="edit.routine.title"></md-input>
-  </div>
-</md-toolbar>
+<form name="routineForm">
 
-<form class="dark">
+  <md-content layout="row" layout-align="center center" layout-margin>
+    <md-input-container flex>
+      <label>Routine Title</label>
+      <input name="routineTitle" ng-model="edit.routine.title" required>
+    </md-input-container>
+  </md-content>
 
-  <section ng-repeat="exercise in edit.routine.exercises" layout="vertical" layout-sm="horizontal" layout-align="center center">
-    <md-input label="Exercise Name" ng-model="exercise.name" type="text"></md-input>
-    <md-input label="Duration (seconds)" ng-model="exercise.duration" type="number"></md-input>
-    <md-button ng-click="edit.removeExercise($index)" class="md-theme-purple">X</md-button>
-  </section>
+  <md-content layout-margin>
 
-  <section layout="vertical" layout-sm="horizontal" layout-align="center center">
-    <md-button ng-click="edit.addExercise()" class="md-theme-dark" flex flex-sm="20">Add Exercise</md-button>
-  </section>
+    <div ng-repeat="exercise in edit.routine.exercises" layout="row" layout-sm="column" layout-align="center center">
+      <md-input-container flex>
+        <label>Exercise Name</label>
+        <input ng-model="exercise.name" type="text" required></input>
+      </md-input-container>
+      <md-input-container flex="30">
+        <label>Duration (seconds)</label>
+        <input ng-model="exercise.duration" type="number" required></input>
+      </md-input-container>
+      <md-button ng-click="edit.removeExercise($index)">X</md-button>
+    </div>
 
-  <section layout="vertical" layout-sm="horizontal" layout-align="center center">
-    <md-button ng-click="" class="md-theme-light" flex flex-sm="20">Save Routine</md-button>
-    <md-button ng-click="" class="md-theme-purple" flex flex-sm="20">Cancel Edits</md-button>
-    <md-button ng-click="" class="md-theme-purple" flex flex-sm="20">Delete Routine</md-button>
-  </section>
+    <section layout="row" layout-sm="column" layout-align="center center">
+      <md-button ng-click="edit.addExercise()" class="md-raised">Add Exercise</md-button>
+    </section>
+    <section layout="row" layout-sm="column" layout-align="center center">
+      <md-button ng-click="edit.saveRoutine(edit.routine)" class="md-raised" ng-disabled="routineForm.$error">Save Routine</md-button>
+      <md-button ng-click="" class="md-raised">Cancel Edits</md-button>
+      <md-button ng-click="" class="md-raised">Delete Routine</md-button>
+    </section>
+
+  </md-content>
 
 </form>
-
-
 
 <p>
   {{ edit.routine }}
